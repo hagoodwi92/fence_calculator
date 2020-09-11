@@ -12,7 +12,7 @@ export default class CurrencyExchange {
       };
       request.open("GET", url, true); 
       request.send(); 
-    }); 
+    });  
 
     
 
