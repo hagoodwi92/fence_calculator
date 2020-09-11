@@ -14,7 +14,4 @@ export default class CurrencyExchange {
       request.send(); 
     });  
   }
-  // static getCurrency(){
-  //   let exchangeRate = currency1/currency2;
-  // }
 }

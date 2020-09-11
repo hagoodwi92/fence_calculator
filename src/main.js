@@ -53,6 +53,7 @@ $(document).ready(function() {
     let amount = $('#amount2').val();
     $(".showResult").text("");
     $(".showExchange").text("");
+    $("#showError2").text("");
     let promise = CurrencyExchange.getExchange(currency1, currency2, amount);
     promise.then(function(response) {
       const body = JSON.parse(response);
@@ -88,9 +89,10 @@ $(document).ready(function() {
       if (currency2 == "Piso"){
         money2 = `${body.conversion_rates.PHP}`;
       }
+      
       let exchangeRate = money1/money2;
       let result = amount / exchangeRate;
-      $('#showExchange2').text(`Your amount is ${result}`);
+      $('#showExchange2').text(`Your amount is ${result}.`);
     });
   });
 });
