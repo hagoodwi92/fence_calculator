@@ -7,39 +7,39 @@ import CurrencyExchange from './currency';
 $(document).ready(function() {
   $('#currencyExchange').click(function(){
     let exchange = $('#currency').val();
-    let country = $('#country').val();
+    let currency = $('#country').val();
     $(".showResult").text("");
     $(".showExchange").text("");
-    let promise = CurrencyExchange.getExchange(country, exchange);
+    let promise = CurrencyExchange.getExchange(currency, exchange);
     promise.then(function(response) {
       const body = JSON.parse(response);
-      if(country == "Argentina"){
-        $('.showExchange').text(`The exchange rate of ${country} is ${body.conversion_rates.ARS}.`);
+      if(currency == "Peso"){
+        $('.showExchange').text(`The current exchange rate of the ${currency} is ${body.conversion_rates.ARS}.`);
         let result = `${exchange}`*`${body.conversion_rates.ARS}`;
-        $('.showResult').text(`The conversion of ${exchange} USD to ${country}'s currency is ${result}.`);
+        $('.showResult').text(`The conversion of $${exchange} USD to ${currency}'s is ${result}.`);
       }
-      else if (country == "Australia"){
-        $('.showExchange').text(`The exchange rate of ${country} is ${body.conversion_rates.AUD}.`);
+      else if (currency == "Dollar"){
+        $('.showExchange').text(`The current exchange rate of the ${currency} is ${body.conversion_rates.AUD}.`);
         let result = `${exchange}`*`${body.conversion_rates.AUD}`;
-        $('.showResult').text(`The conversion of ${exchange} USD to ${country}'s currency is ${result}.`);
+        $('.showResult').text(`The conversion of $${exchange} USD to ${currency}'s is ${result}.`);
       }
-      else if (country == "Bulgaria"){
-        $('.showExchange').text(`The exchange rate of ${country} is ${body.conversion_rates.BGN}.`);
+      else if (currency == "Lev"){
+        $('.showExchange').text(`The current exchange rate of the ${currency} is ${body.conversion_rates.BGN}.`);
         let result = `${exchange}`*`${body.conversion_rates.BGN}`;
-        $('.showResult').text(`The conversion of ${exchange} USD to ${country}'s currency is ${result}.`);
+        $('.showResult').text(`The conversion of $${exchange} USD to ${currency}'s is ${result}.`);
       }
-      else if (country == "Brazil"){
-        $('.showExchange').text(`The exchange rate of ${country} is ${body.conversion_rates.BRL}.`);
+      else if (currency == "Real"){
+        $('.showExchange').text(`The current exchange rate of the ${currency} is ${body.conversion_rates.BRL}.`);
         let result = `${exchange}`*`${body.conversion_rates.BRL}`;
-        $('.showResult').text(`The conversion of ${exchange} USD to ${country}'s currency is ${result}.`);
+        $('.showResult').text(`The conversion of $${exchange} USD to ${currency}'s is ${result}.`);
       }
-      else if (country == "The Philippines"){
-        $('.showExchange').text(`The exchange rate of ${country} is ${body.conversion_rates.PHP}.`);
+      else if (currency == "Piso"){
+        $('.showExchange').text(`The current exchange rate of the ${currency} is ${body.conversion_rates.PHP}.`);
         let result = `${exchange}`*`${body.conversion_rates.PHP}`;
-        $('.showResult').text(`The conversion of ${exchange} USD to ${country}'s currency is ${result}.`);
+        $('.showResult').text(`The conversion of $${exchange} USD to ${currency}'s is ${result}.`);
       }
       else{
-        $('.showErrors').text(`Typo, or ${country} is not supported.`);
+        $('.showErrors').text(`Typo, or ${currency} is not supported. Case sensitive.`);
       }
       
     }, function(error) {
