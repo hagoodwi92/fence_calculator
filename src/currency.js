@@ -13,13 +13,8 @@ export default class CurrencyExchange {
       request.open("GET", url, true); 
       request.send(); 
     });  
-
-    
-
-    
   }
-  // getResult(){
-  //     if(country = "Argentina"){
-
-  //     }
+  // static getCurrency(){
+  //   let exchangeRate = currency1/currency2;
+  // }
 }

@@ -47,4 +47,48 @@ $(document).ready(function() {
     });
 
   });
+  $('#anyCurrency').click(function(){
+    let currency1 = $('#anyCurrency1').val();
+    let currency2 = $('#anyCurrency2').val();
+    let amount = $('#amount2').val();
+    $(".showResult").text("");
+    $(".showExchange").text("");
+    let promise = CurrencyExchange.getExchange(currency1, currency2, amount);
+    promise.then(function(response) {
+      const body = JSON.parse(response);
+      if(currency1 == "Peso"){
+        currency1 = `${body.conversion_rates.ARS}`;
+      }
+      if (currency2 == "Peso"){
+        currency2 = `${body.conversion_rates.ARS}`;
+      }
+      if (currency1 == "Dollar"){
+        currency1 = `${body.conversion_rates.AUD}`;
+      }
+      if (currency2 == "Dollar"){
+        currency2 = `${body.conversion_rates.AUD}`;
+      }
+      if (currency1 == "Lev"){
+        currency1 = `${body.conversion_rates.BGN}`;
+      }
+      if (currency2 == "Lev"){
+        currency2 = `${body.conversion_rates.BGN}`;
+      }
+      if (currency1 == "Real"){
+        currency1 = `${body.conversion_rates.BRL}`;
+      }
+      if (currency2 == "Real"){
+        currency2 = `${body.conversion_rates.BRL}`;
+      }
+      if (currency1 == "Piso"){
+        currency1 = `${body.conversion_rates.PHP}`;
+      }
+      if (currency2 == "Piso"){
+        currency2 = `${body.conversion_rates.PHP}`;
+      }
+      let exchangeRate = currency1/currency2;
+      let result = amount * exchangeRate;
+      $('#showExchange2').text(`Your amount is ${result}`);
+    });
+  });
 });
