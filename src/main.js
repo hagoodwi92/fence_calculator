@@ -5,11 +5,11 @@ import './css/styles.css';
 import CurrencyExchange from './currency';
 
 $(document).ready(function() {
-  $('#currencyExchange').click(function(){ 
+  $('#currencyExchange').click(function(){
     let exchange = $('#currency').val();
-    let country = $('#country').val(); 
-    $('#formOne').val("");
-    $('#currency').val(""); 
+    let country = $('#country').val();
+    $(".showResult").text("");
+    $(".showExchange").text("");
     let promise = CurrencyExchange.getExchange(country, exchange);
     promise.then(function(response) {
       const body = JSON.parse(response);
@@ -39,7 +39,7 @@ $(document).ready(function() {
         $('.showResult').text(`The conversion of ${exchange} USD to ${country}'s currency is ${result}.`);
       }
       else{
-        $('.showExchange').text(`Typo, or ${country} is not supported.`);
+        $('.showErrors').text(`Typo, or ${country} is not supported.`);
       }
       
     }, function(error) {
