@@ -1,13 +1,37 @@
-h1 , h4 , ul{
+h1,h2{
+  font-family:"Lato","Roboto Condensed",Roboto,"Helvetica Neue",Arial,sans-serif;
+  ;
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 42px;
+  color: #53585a;
+  text-transform: uppercase;
   text-align: center;
 }
+
+#right{
+  margin-top: 70px;
+}
+
+label,p,h5,h4,h3{
+  font-family:"Lato","Roboto Condensed",Roboto,"Helvetica Neue",Arial,sans-serif;
+  ;
+}
+
+#header{
+  width: auto;
+  height: 100px;
+}
+
+
+
 .container{
   text-align: center;
 } 
 
 .jumbotron{
   text-align: center;
-}
+} */
 body{
-  background-color: olive;
+  background-color:#e7e4d1;
 }
